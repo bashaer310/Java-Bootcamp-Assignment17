@@ -27,8 +27,8 @@ public class CustomerService {
         User user1=authRepository.findUserById(user.getId());
         if(user1==null)
             throw new ApiException("User id not found");
-        if(!(user1.getRole().equals("CUSTOMER")))
-            throw new ApiException("User role not equals CUSTOMER");
+        /*if(!(user1.getRole().equals("CUSTOMER")))
+            throw new ApiException("User role not equals CUSTOMER");*/
 
         Customer customer=new Customer(null,customerDTO.getName(),customerDTO.getEmail(),LocalDate.now(),user1,null);
         customerRepository.save(customer);
